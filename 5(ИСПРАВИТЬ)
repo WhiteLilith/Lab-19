@@ -1,0 +1,50 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    Random rand = new Random();
+    int[,] a = new int[100,100];
+    int[] b = new int[100];
+    int i, j, M, p, k, l, sum;
+    Console.Write("Введите порядок квадратной матрицы: ");
+    M = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    Console.WriteLine();
+    Console.WriteLine("Начальная матрица: ");
+    for (i=0; i<M; i++)
+    {
+      for (j=0; j<M; j++)
+      {
+      a[i,j] = rand.Next(100);
+      Console.Write(a[i,j]);
+      if (j!=M-1)
+      Console.Write(" ");
+      else
+      Console.WriteLine();
+      }
+    }
+    k = 1; l = 0;
+    while (l!=M)
+    {
+    for (i=M-k, j=l; i>=0, j<k; i--, j++)
+    {
+      sum += a[i,j];
+    }
+    k++;
+    l++;
+    }
+    Console.WriteLine();
+    Console.WriteLine();
+    Console.WriteLine("Суммы диагоналей равны соответственно: ");
+    for (i=0; i<2*M; i++)
+    {
+      if (b[i]!=-1000)
+      {
+        Console.Write(b[i]);
+        Console.Write(" ");
+      }
+    }
+  }
+}
