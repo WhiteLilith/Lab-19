@@ -1,0 +1,60 @@
+using System;
+
+class MainClass 
+{
+  public static void Main (string[] args) 
+  {
+    Random rand = new Random();
+    int[,] a = new int[100,100];
+    int i, j, M, N, p, k, l;
+    Console.Write("Введите число строк в матрице: ");
+    M = int.Parse(Console.ReadLine());
+    Console.Write("Введите число столбцов в матрице: ");
+    N = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    Console.WriteLine();
+    Console.WriteLine("Начальная матрица: ");
+    for (i=0; i<M; i++)
+    {
+      for (j=0; j<N; j++)
+      {
+      a[i,j] = rand.Next(100);
+      Console.Write(a[i,j]);
+      if (j!=N-1)
+      Console.Write(" ");
+      else
+      Console.WriteLine();
+      }
+    }
+    for (l=0; l<M; l++)
+    {
+    for (i=0; i<M-1; i++)
+    {
+      j = 0;
+      if (a[i,j] > a[i+1,j])
+      {
+        for (k=0; k<N; k++)
+        {
+          p = a[i,k];
+          a[i,k] = a[i+1,k];
+          a[i+1,k] = p;
+        }
+      }
+    }
+    }
+    Console.WriteLine();
+    Console.WriteLine();
+    Console.WriteLine("Конечная матрица: ");
+    for (i=0; i<M; i++)
+    {
+      for (j=0; j<N; j++)
+      {
+        Console.Write(a[i,j]);
+        if (j!=N-1)
+        Console.Write(" ");
+        else
+        Console.WriteLine();
+      }
+    }
+  }
+}
